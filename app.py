@@ -29,6 +29,7 @@ def format_message(message):
 		'id': message.id,
 		'sent_at': message.sent_at
 	}
+	
 
 @app.route('/', methods=['GET'])
 def get_messages():
