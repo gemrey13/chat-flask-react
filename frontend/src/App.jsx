@@ -13,8 +13,11 @@ function App() {
       setMessages(data.messages);
     };
 
-    setInterval(fetchMessage, 2000);
-    
+    const intervalId = setInterval(fetchMessage, 2000);
+
+    return () => {
+      clearInterval(intervalId);
+    };
 
   }, []);
 
