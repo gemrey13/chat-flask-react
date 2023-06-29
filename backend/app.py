@@ -20,8 +20,9 @@ app = Flask(__name__)
 app.config ['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.sqlite3'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 CORS(app)
-CORS(app, resources={r"/api/*": {"origins": "http://127.0.0.1:5000/", "methods": ["GET", "POST", "PUT", "DELETE"]}})
+CORS(app, resources={r"/api/*": {"origins": "http://localhost:5173", "methods": ["GET", "POST", "PUT", "DELETE"]}})
 db = SQLAlchemy(app)
+
 
 class Message(db.Model):
 	id = db.Column('message_id', db.Integer, primary_key=True)
@@ -61,7 +62,7 @@ def get_messages():
 
 @app.route('/api/', methods=['POST'])
 def send_message():
-	content = request.json['content']
+	content = request.json.get('content')
 	message = Message(content)
 	db.session.add(message)
 	db.session.commit()

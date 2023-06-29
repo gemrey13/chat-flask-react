@@ -1,0 +1,15 @@
+.box {
+	background: red;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	border: black solid 1px	;
+	width: 30%;
+	height: 200px;
+	overflow-y: auto;
+}
+
+.box p {
+	margin: 5px;
+}
