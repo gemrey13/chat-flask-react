@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react'
 import './chatbox.css';
 
-const baseUrl = 'http://127.0.0.1:5000/api/'
+// const baseUrl = 'http://127.0.0.1:5000/api/'
+const baseUrl = 'https://gemreytest.pythonanywhere.com/api/'
 
 function Chatbox() {
   const [messages, setMessages] = useState([]);
